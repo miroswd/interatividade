@@ -2,26 +2,22 @@ import React from 'react';
 
 import { Container, User } from './styles';
 
-const Message: React.FC = ({ name, avatar_url, message }) => {
+interface IUser {
+  name: string;
+  text: string;
+  userId: string;
+  avatar_url: string;
+  tweet: any;
+}
+
+const Message: React.FC<any> = (user: IUser) => {
   return (
     <Container>
       <User>
-        <img
-          src="https://www.w3schools.com/howto/img_avatar2.png"
-          alt="Avatar_url "
-        />
-        <span>Nome do Usuário</span>
+        <img src={user.tweet.avatar_url} alt="Avatar_url" />
+        <span>{user.tweet.name}</span>
       </User>
-      <p>
-        Mensagem que o usuário mandar com a hashtag, Mensagem que o usuário
-        mandar com a hashtag Mensagem que o usuário mandar com a hashtag,
-        Mensagem que o usuário mandar com a hashtag Mensagem que o usuário
-        mandar com a hashtag, Mensagem que o usuário mandar com a hashtag
-        Mensagem que o usuário mandar com a hashtag, Mensagem que o usuário
-        mandar com a hashtag Mensagem que o usuário mandar com a hashtag,
-        Mensagem que o usuário mandar com a hashtag Mensagem que o usuário
-        mandar com a hashtag, Mensagem que o usuário mandar com a hashtag
-      </p>
+      <p>{user.tweet.text}</p>
     </Container>
   );
 };
