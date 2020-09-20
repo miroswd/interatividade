@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { HashLoader } from 'react-spinners';
 import { Container, PrimaryContent, SecondContent } from './styles';
 
-import Message from '../components/message';
-import api from '../service/api';
+import Message from '../../components/message';
+import api from '../../service/api';
 
-const Messages: React.FC = () => {
+const Interactivity: React.FC = () => {
   const [primaryColumn, setPrimaryColumn] = useState([]);
   const [secondColumn, setSecondColumn] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -16,32 +16,38 @@ const Messages: React.FC = () => {
     userId: string;
   }
 
-  localStorage.setItem(
-    '@columnOne',
-    JSON.stringify(['1306791543118888960', '1307082682325753856']),
-  );
   const one = localStorage.getItem('@columnOne');
+  const two = localStorage.getItem('@columnTwo');
 
   let columnOne = '';
+  let columnTwo = '';
+
   if (one !== null) {
     const oneArray = JSON.parse(one);
-    oneArray.push('1306732819390115840');
-    localStorage.setItem('@columnOne', JSON.stringify(oneArray));
-    const url = oneArray.toString().replace(' ', '');
-    columnOne = url;
+    // oneArray.push('1306732819390115840');
+    // localStorage.setItem('@columnOne', JSON.stringify(oneArray));
+    const urlOne = oneArray.toString().replace(' ', '');
+
+    columnOne = urlOne;
+  }
+
+  if (two !== null) {
+    const twoArray = JSON.parse(two);
+    const urlTwo = twoArray.toString().replace(' ', '');
+    columnTwo = urlTwo;
   }
 
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
       const primaryResponse = await api.get(`1/${columnOne}`);
-      const secondResponse = await api.get(`2/1305975270197923856`);
+      const secondResponse = await api.get(`2/${columnTwo}`);
       setPrimaryColumn(primaryResponse.data);
       setSecondColumn(secondResponse.data);
       setLoading(false);
     };
     loadData();
-  }, [columnOne]);
+  }, [columnOne, columnTwo]);
 
   return (
     <>
@@ -77,4 +83,4 @@ const Messages: React.FC = () => {
   );
 };
 
-export default Messages;
+export default Interactivity;
