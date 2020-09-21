@@ -31,7 +31,7 @@ const Register: React.FC<any> = () => {
     if (two === null) {
       localStorage.setItem(
         '@columnTwo',
-        JSON.stringify(['1138134703171522563']),
+        JSON.stringify(['1299281436558741505']),
       );
       return;
     }
