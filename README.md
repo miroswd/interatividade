@@ -1,4 +1,10 @@
 <h1>Interatividade - Jornal Local Globo</h1>
+
+Veja a postagem:
+  
+[![image](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/altamir-santos/)](https://www.linkedin.com/posts/altamir-santos_bdsp-nodejs-backend-activity-6713597746445606912-j2dH)
+
+
 <p>Estudo relacionado à recepção dos dados emitidos pelo Twitter</p>
 
 <img src="https://github.com/miroswd/interatividade/blob/master/assets/interatividade.png" alt="print" />
