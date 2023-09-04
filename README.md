@@ -17,7 +17,7 @@ Veja a postagem:
 - Rode o seguinte comando:
 
 ```
-yarn start # Iniciará a aploicação web
+yarn start # Iniciará a aplicação web
 ```
 
 <p>Acesse a rota "/tweet", para cadastrar tweets</p>
